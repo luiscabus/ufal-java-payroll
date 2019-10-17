@@ -505,7 +505,37 @@ public class Main {
     }
 
     private void agendasDePagamento(String[][] array) {
+        Scanner scanner = new Scanner(System.in);
 
+        System.out.print("-- Lista de todos os empregados :\n");
+        for (int i = 0; i < qtd_empregados; i++) {
+            if (array[i][0] != null) {
+                System.out.print("--- [ID:"+i+"] --- --- --- --- --- ---\n");
+                System.out.print("Nome do empregado: " + array[i][1] + "\n");
+                System.out.print("--- --- --- --- --- --- --- --- ---\n");
+            }
+        }
+
+        System.out.print("Entre com o id do empregado para editar sua agenda:\n");
+        String entrada = scanner.nextLine();
+        int id = Integer.valueOf(entrada);
+
+        if (array[id][0] == null) {
+            System.out.println("O empregado não existe, brow.");
+        } else {
+            System.out.println("Empregado " + array[id][1] + " poderá ser editado:");
+            
+            String tipoDeAgenda = null; // 1 1x/mes, 2 2x/mes, 4 4x/mes...
+            
+            System.out.print("Entre com o tipo de agenda de recebimento que deseja: (1 =1x/mes, 2 =2x/mes, 4 =4x/mes)\n");
+            tipoDeAgenda = scanner.nextLine();
+            if (!tipoDeAgenda.isEmpty() && tipoDeAgenda != null && tipoDeAgenda != "\n" && tipoDeAgenda != "") {
+                array[id][7] = tipoDeAgenda;
+            }
+
+            System.out.println("Empregado editado: ID: " + id + ", Nome: " + array[id][1]);
+
+        }
     }
 
     private void criarNovasAgendas(String[][] array) {
@@ -608,16 +638,21 @@ public class Main {
                 self.rodarFolhaHoje(self.empregados);
             }
 
-            if (menu == 9) {
+            if (menu == 10) {
                 self.agendasDePagamento(self.empregados);
             }
 
-            if (menu == 10) {
+            if (menu == 11) {
                 self.criarNovasAgendas(self.empregados);
             }
 
             if (menu == 12) {
                 self.showAllEmployees(self.empregados);
+            }
+
+            if (menu == 13) {
+                System.out.print("\033[H\033[2J");  
+                System.out.flush(); 
             }
 
             if (menu == 14) {
@@ -695,11 +730,6 @@ public class Main {
                 self.empregados[3][12] = "30";
                 System.out.print("Empregado Oscar, comissionado, R$800/m, 10% comissao, recebe 2x/mes, cheque correio, sindicato (n) \n");
                 System.out.print("Vamos lançar uma venda de R$300, [300 * 0,10].\n");
-            }
-
-            if (menu == 13) {
-                System.out.print("\033[H\033[2J");  
-                System.out.flush(); 
             }
 
             
