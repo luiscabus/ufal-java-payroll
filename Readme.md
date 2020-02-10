@@ -19,13 +19,13 @@ The refactor should consider 3 fixing at least 3 code smells. The approach start
 
 All the code was inside the Main class. The code has been restructured, classes have been extracted from there and created as new. Functionality remains the same, but code is more organized. 
 
-### Method extraction 
+### Method extraction (bad smell: duplicated code)
 
 Some code to show Employees information was repeated across different methods. This code was extracted to a method that can then be reused without code duplication. 
 
-### Long Methods
+### Long Methods (bad smell: super long methods)
 
-
+Code split into different methods that handle specific and unique things, instead of having a long method to handle lots of different behaviors. 
 
 
 
