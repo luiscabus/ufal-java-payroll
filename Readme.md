@@ -1,7 +1,7 @@
 
-# Welcome to my payroll!
+# Welcome to my payroll (Refactored)!
 
-Hi! I'm a CS Grad at **Universidade Federal de Alagoas - UFAL**. My professor, Baldoíno Fonseca, have instructed us to build a simple amateur payroll software in **JAVA** with the functionalities described below.
+Hi! I'm a CS Grad at **Universidade Federal de Alagoas - UFAL**. My professor, Baldoíno Fonseca, have instructed us to build a simple amateur payroll software in **JAVA** with the functionalities described below. After that we were requested to refactor ir.
 
 ## Compiling and running
 
@@ -12,7 +12,17 @@ Hi! I'm a CS Grad at **Universidade Federal de Alagoas - UFAL**. My professor, B
 
 # Caveat
 
-This project was supposed to be written in the worst way possible, like an amateur developer. **crazy!**
+The refactor should consider 3 fixing at least 3 code smells. The approach started turning the not-OO project into OO. Then the following patterns were found and fixed.
+
+
+### Class extraction (bad smell: large class)
+
+All the code was inside the Main class. The code has been restructured, classes have been extracted from there and created as new. Functionality remains the same, but code is more organized. 
+
+### Method extraction 
+
+### Long Methods
+
 
 
 ## Functionalities and Rules:
