@@ -111,13 +111,9 @@ public class Empregado {
 
     public void editEmployee(){
 
-        Scanner scanner = new Scanner(System.in);
-
         showAllEmployees();
 
-        System.out.print("Entre com o id do empregado para editar:\n");
-        String entrada = scanner.nextLine();
-        int id = Integer.valueOf(entrada);
+        int id = Integer.valueOf(requestLine("Entre com o id do empregado para editar:").answer);
 
         if (Main.empregadosArrayList.size() < 1) {
             System.out.println("O empregado não existe, brow.");
@@ -127,100 +123,82 @@ public class Empregado {
 
             System.out.println("Empregado " + empregado.nome + " pode ser editado:");
 
-            String nome = null;
-            String endereco = null;
-            String tipo; //1 hourly, 2 salaried, 3 commissioned
-            String salarioHora = null;
-            String salarioMes = null;
-            String comissao = null;
+            LineRequest line;
 
-            String tipoDeAgenda = null; // 1 1x/mes, 2 2x/mes, 4 4x/mes...
-            String metodoPagamento = null; // 1 cheque correio, 2 cheque maos, 3 conta bancaria
-
-            String pertenceSindicato = null;
-            String taxaSindicato = null;
-
-            String salarioHoraAcumulado = null;
-            String comissoesAcumuladas = null;
-            String taxaSindAcumulado = null;
-
-            System.out.print("Entre com o nome do empregado:\n");
-            nome = scanner.nextLine();
-            if (!nome.isEmpty() && nome != null && nome != "\n" && nome != "") {
-                empregado.nome = nome;
+             line = requestLine("Entre com o nome do empregado:");
+            if (line.isValid) {
+                empregado.nome = line.answer;
             }
 
-            System.out.print("Entre com o endereço:\n");
-            endereco = scanner.nextLine();
-            if (!endereco.isEmpty() && endereco != null && endereco != "\n" && endereco != "") {
-                empregado.endereco = endereco;
+             line = requestLine("Entre com o endereço:");
+            if (line.isValid) {
+                empregado.endereco = line.answer;
             }
 
-            System.out.print("Entre com o tipo do empregado (1 hourly, 2 salaried, 3 comissioned):\n");
-            tipo = scanner.nextLine(); //1 hourly, 2 salaried, 3 commissioned
+             line = requestLine("Entre com o tipo do empregado (1 hourly, 2 salaried, 3 comissioned):");
+            if (line.isValid) {
+                empregado.tipo = line.answer;
 
-            if (!tipo.isEmpty() && tipo != null && tipo != "\n" && tipo != "") {
-                empregado.tipo = tipo;
-
-                if (tipo.equals("1")) {
-                    System.out.print("Entre com o salário hora:\n");
-                    salarioHora = scanner.nextLine();
-                    if (!salarioHora.isEmpty() && salarioHora != null && salarioHora != "\n" && salarioHora != "") {
-                        empregado.salarioHora = salarioHora;
+                if (empregado.tipo.equals("1")) {
+                     line = requestLine("Entre com o salário hora:");
+                    if (line.isValid) {
+                        empregado.salarioHora = line.answer;
                         tipoDeAgenda = "4";
                     }
                 }
 
-                if (tipo.equals("2")) {
-                    System.out.print("Entre com o salário mensal:\n");
-                    salarioMes = scanner.nextLine();
-                    if (!salarioMes.isEmpty() && salarioMes != null && salarioMes != "\n" && salarioMes != "") {
-                        empregado.salarioMes = salarioMes;
+                if (empregado.tipo.equals("2")) {
+                     line = requestLine("Entre com o salário mensal:");
+                    if (line.isValid) {
+                        empregado.salarioMes = line.answer;
                         tipoDeAgenda = "1";
                     }
                 }
 
-                if (tipo.equals("3")) {
-                    System.out.print("Entre com o salário parte fixa mensal:\n");
-                    salarioMes = scanner.nextLine();
-                    System.out.print("Entre com a comissão (%):\n");
-                    comissao = scanner.nextLine();
-                    if (!comissao.isEmpty() && comissao != null && comissao != "\n" && comissao != "" && !salarioMes.isEmpty() && salarioMes != null && salarioMes != "\n" && salarioMes != "") {
-                        empregado.salarioMes = salarioMes;
-                        empregado.comissao = comissao;
+                if (empregado.tipo.equals("3")) {
+                     line = requestLine("Entre com o salário parte fixa mensal:");
+                    if (line.isValid) {
+                        empregado.salarioMes = line.answer;
                         tipoDeAgenda = "2";
                     }
-                }
-            }
-
-            System.out.print("Pertence a sindicato? (0 não, 1 sim):\n");
-            pertenceSindicato = scanner.nextLine();
-            if (!pertenceSindicato.isEmpty() && pertenceSindicato != null && pertenceSindicato != "\n" && pertenceSindicato != "") {
-                empregado.pertenceSindicato = pertenceSindicato;
-
-                if (pertenceSindicato.equals("1")) {
-                    System.out.print("Qual a taxa cobrada pelo sindicato a cada pagamento?\n");
-                    taxaSindicato = scanner.nextLine();
-                    if (!taxaSindicato.isEmpty() && taxaSindicato != null && taxaSindicato != "\n" && taxaSindicato != "") {
-                        empregado.taxaSindicato = taxaSindicato;
+                     line = requestLine("Entre com a comissão (%):");
+                    if (line.isValid) {
+                        empregado.comissao = line.answer;
                     }
                 }
             }
 
-            System.out.print("Como quer receber seu pagamento? (1 Cheque pelos correios, 2 Cheque em mãos, 3 Depósito na conta):\n");
-            metodoPagamento = scanner.nextLine();
-            if (!metodoPagamento.isEmpty() && metodoPagamento != null && metodoPagamento != "\n" && metodoPagamento != "") {
-                empregado.metodoPagamento = metodoPagamento;
+             line = requestLine("Pertence a sindicato? (0 não, 1 sim):");
+            if (line.isValid) {
+                empregado.pertenceSindicato = line.answer;
+
+                if (pertenceSindicato.equals("1")) {
+                     line = requestLine("Qual a taxa cobrada pelo sindicato a cada pagamento?");
+                    if (line.isValid) {
+                        empregado.taxaSindicato = line.answer;
+                    }
+                }
+            }
+
+             line = requestLine("Como quer receber seu pagamento? (1 Cheque pelos correios, 2 Cheque em mãos, 3 Depósito na conta):");
+            if (line.isValid) {
+                empregado.metodoPagamento = line.answer;
             }
 
             empregado.salarioHoraAcumulado = "0"; //salario-hora acumulado
             empregado.comissoesAcumuladas = "0"; //comissoes acumuladas
             empregado.taxaSindAcumulado = "0"; //taxas acumuladas
 
-            System.out.println("Empregado editado: ID: " + id + ", Nome: " + nome + ", Endereço: " + endereco);
-
+            System.out.println("Empregado editado: ID: " + id + ", Nome: " + empregado.nome);
         }
 
+    }
+
+    private LineRequest requestLine(String question) {
+        LineRequest line = new LineRequest(question);
+        line.askQuestion();
+        line.getInput();
+        return line;
     }
 
 
