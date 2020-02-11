@@ -41,10 +41,11 @@ public class Menu {
                 Lancamento lancamento = new Lancamento();
                 lancamento.baterPonto();
             }
-//
-//            if (menu == 4) {
-//                lancarVenda(empregados);
-//            }
+
+            if (menu == 4) {
+                Lancamento lancamento = new Lancamento();
+                lancamento.lancarVenda();
+            }
 //
 //            if (menu == 5) {
 //                lancarTaxas(empregados);

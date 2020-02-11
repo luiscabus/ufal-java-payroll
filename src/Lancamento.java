@@ -33,36 +33,31 @@ public class Lancamento {
 
         }
     }
+
+    public void lancarVenda() {
+        Scanner scanner = new Scanner(System.in);
+
+        new Empregado().showAllEmployees();
+
+        System.out.print("Entre com o id do empregado para lançar a venda:\n");
+        int id = scanner.nextInt();
+
+        Empregado empregado = Main.empregadosArrayList.get(id);
+
+        if (empregado.tipo.equals(3)) {
+            System.out.println("O empregado não existe, ou não é comissionado, mano.");
+            System.out.println(empregado.tipo);
+        } else {
+            System.out.println("Empregado " + empregado.nome + ".");
+            System.out.print("Entre o valor da venda:\n");
+            int valor_venda = scanner.nextInt();
+
+            empregado.comissoesAcumuladas = Integer.toString(Integer.parseInt(empregado.comissoesAcumuladas) + (int)(valor_venda * Integer.parseInt(empregado.comissao) / 100));
+
+        }
+    }
 }
 
-//    }
-//
-//    private void lancarVenda(String[][] array) {
-//        Scanner scanner = new Scanner(System.in);
-//
-//        System.out.print("-- Lista de empregados comissionados:\n");
-//        for (int i = 0; i < qtd_empregados; i++) {
-//            if (array[i][0] != null && array[i][3].equals("3")) {
-//                System.out.print("--- [ID:"+i+"] --- --- --- --- --- ---\n");
-//                System.out.print("Nome do empregado: " + array[i][1] + "\n");
-//                System.out.print("--- --- --- --- --- --- --- --- ---\n");
-//            }
-//        }
-//
-//        System.out.print("Entre com o id do empregado para lançar a venda:\n");
-//        int id = scanner.nextInt();
-//
-//        if (array[id][0] == null || !array[id][3].equals("3")) {
-//            System.out.println("O empregado não existe, ou não é comissionado, mano.");
-//        } else {
-//            System.out.println("Empregado " + array[id][1] + ".");
-//            System.out.print("Entre o valor da venda:\n");
-//            int valor_venda = scanner.nextInt();
-//
-//            array[id][12] = Integer.toString(Integer.parseInt(array[id][12]) + (int)(valor_venda * Integer.parseInt(array[id][6]) / 100));
-//
-//        }
-//    }
 //
 //    private void lancarTaxas(String[][] array) {
 //        Scanner scanner = new Scanner(System.in);
