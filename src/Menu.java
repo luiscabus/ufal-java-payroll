@@ -37,9 +37,10 @@ public class Menu {
                 deletar.deleteEmployee();
             }
 
-//            if (menu == 3) {
-//                baterPonto(empregados);
-//            }
+            if (menu == 3) {
+                Lancamento lancamento = new Lancamento();
+                lancamento.baterPonto();
+            }
 //
 //            if (menu == 4) {
 //                lancarVenda(empregados);

@@ -2,41 +2,48 @@ import java.util.Scanner;
 
 public class Lancamento {
 
-//    private void baterPonto(String[][] array) {
-//        Scanner scanner = new Scanner(System.in);
-//
-//        System.out.print("-- Lista de empregados horistas:\n");
-//        for (int i = 0; i < qtd_empregados; i++) {
-//            if (array[i][0] != null && array[i][3].equals("1")) {
-//                System.out.print("--- [ID:"+i+"] --- --- --- --- --- ---\n");
-//                System.out.print("Nome do empregado: " + array[i][1] + "\n");
-//                System.out.print("--- --- --- --- --- --- --- --- ---\n");
-//            }
-//        }
-//
-//        System.out.print("Entre com o id do empregado para inserir o cartão de ponto:\n");
-//        int id = scanner.nextInt();
-//
-//        if (array[id][0] == null || !array[id][3].equals("1")) {
-//            System.out.println("O empregado não existe, ou não é horista, mano.");
-//        } else {
-//            System.out.println("Empregado " + array[id][1] + ".");
-//            System.out.print("Entre hora de entrada (Formato 24h):\n");
-//            int hora_entrada = scanner.nextInt();
-//            System.out.print("Entre hora de saída (Formato 24h):\n");
-//            int hora_saida = scanner.nextInt();
-//
-//            int horas_trabalhadas = hora_saida - hora_entrada;
-//            if (horas_trabalhadas <= 8) {
-//                array[id][11] = Integer.toString(Integer.parseInt(array[id][11]) + Integer.parseInt(array[id][4]) * horas_trabalhadas);
-//            } else {
-//                int horas_extras = horas_trabalhadas - 8;
-//                horas_trabalhadas = 8;
-//                array[id][11] = Integer.toString(Integer.parseInt(array[id][11]) + Integer.parseInt(array[id][4]) * horas_trabalhadas);
-//                array[id][11] = Integer.toString(Integer.parseInt(array[id][11]) + Integer.parseInt(array[id][4]) * (int)(horas_extras * 1.5));
-//            }
-//
-//        }
+    public void baterPonto() {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("-- Lista de empregados horistas:\n");
+        for (int i = 0; i < Main.empregadosArrayList.size(); i++) {
+            Empregado empregado = Main.empregadosArrayList.get(i);
+
+            if (empregado.tipo.equals("1")) {
+                System.out.print("--- [ID:"+i+"] --- --- --- --- --- ---\n");
+                System.out.print("Nome do empregado: " + empregado.nome + "\n");
+                System.out.print("--- --- --- --- --- --- --- --- ---\n");
+            }
+        }
+
+        System.out.print("Entre com o id do empregado para inserir o cartão de ponto:\n");
+        int id = scanner.nextInt();
+
+        Empregado empregado = Main.empregadosArrayList.get(id);
+
+        if (!empregado.tipo.equals("1")) {
+            System.out.println("O empregado não existe, ou não é horista, mano.");
+        } else {
+            System.out.println("Empregado " + empregado.nome + ".");
+            System.out.print("Entre hora de entrada (Formato 24h):\n");
+            int hora_entrada = scanner.nextInt();
+            System.out.print("Entre hora de saída (Formato 24h):\n");
+            int hora_saida = scanner.nextInt();
+
+            int horas_trabalhadas = hora_saida - hora_entrada;
+            if (horas_trabalhadas <= 8) {
+                empregado.salarioHoraAcumulado = Integer.toString(Integer.parseInt(empregado.salarioHoraAcumulado) + Integer.parseInt(empregado.salarioHora) * horas_trabalhadas);
+            } else {
+                int horas_extras = horas_trabalhadas - 8;
+                horas_trabalhadas = 8;
+                empregado.salarioHoraAcumulado = Integer.toString(Integer.parseInt(empregado.salarioHoraAcumulado) + Integer.parseInt(empregado.salarioHora) * horas_trabalhadas);
+                empregado.salarioHoraAcumulado = Integer.toString(Integer.parseInt(empregado.salarioHoraAcumulado) + Integer.parseInt(empregado.salarioHora) * (int)(horas_extras * 1.5));
+            }
+
+        }
+    }
+}
+
 //    }
 //
 //    private void lancarVenda(String[][] array) {
@@ -92,4 +99,4 @@ public class Lancamento {
 //
 //        }
 //    }
-}
+//}
