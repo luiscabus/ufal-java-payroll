@@ -56,33 +56,26 @@ public class Lancamento {
 
         }
     }
-}
 
-//
-//    private void lancarTaxas(String[][] array) {
-//        Scanner scanner = new Scanner(System.in);
-//
-//        System.out.print("-- Lista de empregados sindicalizados:\n");
-//        for (int i = 0; i < qtd_empregados; i++) {
-//            if (array[i][0] != null && array[i][9].equals("1")) {
-//                System.out.print("--- [ID:"+i+"] --- --- --- --- --- ---\n");
-//                System.out.print("Nome do empregado: " + array[i][1] + "\n");
-//                System.out.print("--- --- --- --- --- --- --- --- ---\n");
-//            }
-//        }
-//
-//        System.out.print("Entre com o id do empregado para lançar a taxa:\n");
-//        int id = scanner.nextInt();
-//
-//        if (array[id][0] == null || !array[id][3].equals("3")) {
-//            System.out.println("O empregado não existe, ou não é sindicalizado, mano.");
-//        } else {
-//            System.out.println("Empregado " + array[id][1] + ".");
-//            System.out.print("Entre o valor da taxa:\n");
-//            int valor_taxa = scanner.nextInt();
-//
-//            array[id][13] = Integer.toString(Integer.parseInt(array[id][13]) + valor_taxa);
-//
-//        }
-//    }
-//}
+    public void lancarTaxas() {
+        Scanner scanner = new Scanner(System.in);
+
+        new Empregado().showAllEmployees();
+
+        System.out.print("Entre com o id do empregado para lançar a taxa:\n");
+        int id = scanner.nextInt();
+
+        Empregado empregado = Main.empregadosArrayList.get(id);
+
+        if (empregado.pertenceSindicato.equals(0)) {
+            System.out.println("O empregado não existe, ou não é sindicalizado, mano.");
+        } else {
+            System.out.println("Empregado " + empregado.nome + ".");
+            System.out.print("Entre o valor da taxa:\n");
+            int valor_taxa = scanner.nextInt();
+
+            empregado.taxaSindAcumulado = Integer.toString(Integer.parseInt(empregado.taxaSindAcumulado) + valor_taxa);
+
+        }
+    }
+}

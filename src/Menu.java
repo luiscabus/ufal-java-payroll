@@ -46,10 +46,11 @@ public class Menu {
                 Lancamento lancamento = new Lancamento();
                 lancamento.lancarVenda();
             }
-//
-//            if (menu == 5) {
-//                lancarTaxas(empregados);
-//            }
+
+            if (menu == 5) {
+                Lancamento lancamento = new Lancamento();
+                lancamento.lancarTaxas();
+            }
 
             if (menu == 6) {
                 Empregado editar = new Empregado();
