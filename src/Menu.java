@@ -21,28 +21,7 @@ public class Menu {
 
             diaDaSemana = returnDiadaSemana(diasCorridos);
 
-            System.out.println();
-            System.out.printf("### ---- DIA DE HOJE: %d/%d/%d -- %s ---- ###    ", dia_de_hoje, mes_de_hoje, ano_de_hoje, diaDaSemana);
-            System.out.printf("Esta é a gambiarra de uma folha de pagamentos!\n\n");
-            System.out.print("O que você deseja fazer?\n");
-            System.out.print("1- Adição de empregado\t\t\t");
-            System.out.print("2- Remoção de empregado\t\t\t");
-            System.out.print("3- Lançar um Cartão de Ponto\n");
-
-            System.out.print("4- Lançar um Resultado Venda\t\t");
-            System.out.print("5- Lançar uma taxa de serviço\t\t");
-            System.out.print("6- Alterar detalhes de um empregado\n");
-
-            System.out.print("7- Rodar a folha de pagamento para hoje\n");
-            System.out.print("8- Undo\t\t");
-            System.out.print("9- Redo\n");
-
-            System.out.print("10- Alterar agenda de pagamento\t\t");
-            System.out.print("11- Criação de Novas Agendas de Pagamento\t\t");
-            System.out.print("12- Listar empregados cadastrados\n");
-            System.out.print("13- CLEAR\n");
-            System.out.print("14- Incluir dados de exemplo\n");
-            System.out.print("99- SAIR:\n");
+            printMenuOptions();
 
             menu = scanner_menu.nextInt();
             System.out.println("Sua escolha foi: " + menu + "\t");
@@ -128,6 +107,31 @@ public class Menu {
 
 
         } while (menu != 99);
+    }
+
+    private void printMenuOptions() {
+        System.out.println();
+        System.out.printf("### ---- DIA DE HOJE: %d/%d/%d -- %s ---- ###    ", dia_de_hoje, mes_de_hoje, ano_de_hoje, diaDaSemana);
+        System.out.printf("Esta é a gambiarra de uma folha de pagamentos!\n\n");
+        System.out.print("O que você deseja fazer?\n");
+        System.out.print("1- Adição de empregado\t\t\t");
+        System.out.print("2- Remoção de empregado\t\t\t");
+        System.out.print("3- Lançar um Cartão de Ponto\n");
+
+        System.out.print("4- Lançar um Resultado Venda\t\t");
+        System.out.print("5- Lançar uma taxa de serviço\t\t");
+        System.out.print("6- Alterar detalhes de um empregado\n");
+
+        System.out.print("7- Rodar a folha de pagamento para hoje\n");
+        System.out.print("8- Undo\t\t");
+        System.out.print("9- Redo\n");
+
+        System.out.print("10- Alterar agenda de pagamento\t\t");
+        System.out.print("11- Criação de Novas Agendas de Pagamento\t\t");
+        System.out.print("12- Listar empregados cadastrados\n");
+        System.out.print("13- CLEAR\n");
+        System.out.print("14- Incluir dados de exemplo\n");
+        System.out.print("99- SAIR:\n");
     }
 
     private String returnDiadaSemana(int diasCorridos) {
