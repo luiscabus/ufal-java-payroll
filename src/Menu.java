@@ -19,29 +19,7 @@ public class Menu {
 
             Scanner scanner_menu = new Scanner(System.in);
 
-            switch (diasCorridos % 7) {
-                case 1:
-                    diaDaSemana = "Domingo";
-                    break;
-                case 2:
-                    diaDaSemana = "Segunda-feira";
-                    break;
-                case 3:
-                    diaDaSemana = "Terça-feira";
-                    break;
-                case 4:
-                    diaDaSemana = "Quarta-feira";
-                    break;
-                case 5:
-                    diaDaSemana = "Quinta-feira";
-                    break;
-                case 6:
-                    diaDaSemana = "Sexta-feira";
-                    break;
-                case 0:
-                    diaDaSemana = "Sábado";
-                    break;
-            }
+            diaDaSemana = returnDiadaSemana(diasCorridos);
 
             System.out.println();
             System.out.printf("### ---- DIA DE HOJE: %d/%d/%d -- %s ---- ###    ", dia_de_hoje, mes_de_hoje, ano_de_hoje, diaDaSemana);
@@ -150,5 +128,23 @@ public class Menu {
 
 
         } while (menu != 99);
+    }
+
+    private String returnDiadaSemana(int diasCorridos) {
+        switch (diasCorridos % 7) {
+            case 1:
+                return "Domingo";
+            case 2:
+                return "Segunda-feira";
+            case 3:
+                return "Terça-feira";
+            case 4:
+                return "Quarta-feira";
+            case 5:
+                return "Quinta-feira";
+            case 6:
+                return "Sexta-feira";
+        }
+        return "Sábado";
     }
 }
