@@ -39,7 +39,21 @@ public class Empregado {
         String taxaSindAcumulado = "0";
     }
 
-
+    public Empregado(String nome, String endereco, String tipo, String salarioHora, String salarioMes, String comissao, String tipoDeAgenda, String metodoPagamento, String pertenceSindicato, String taxaSindicato, String salarioHoraAcumulado, String comissoesAcumuladas, String taxaSindAcumulado) {
+        this.nome = nome;
+        this.endereco = endereco;
+        this.tipo = tipo;
+        this.salarioHora = salarioHora;
+        this.salarioMes = salarioMes;
+        this.comissao = comissao;
+        this.tipoDeAgenda = tipoDeAgenda;
+        this.metodoPagamento = metodoPagamento;
+        this.pertenceSindicato = pertenceSindicato;
+        this.taxaSindicato = taxaSindicato;
+        this.salarioHoraAcumulado = salarioHoraAcumulado;
+        this.comissoesAcumuladas = comissoesAcumuladas;
+        this.taxaSindAcumulado = taxaSindAcumulado;
+    }
 
     public Empregado requestEmployeeInput(){
 

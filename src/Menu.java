@@ -121,42 +121,14 @@ public class Menu {
 
             if (menu == 14) {
                 Empregado empregado;
-                empregado = new Empregado();
-                empregado.nome = "Jose da Silva"; // nome
-                empregado.endereco = "Rua da Silva 123"; // endereço
-                empregado.tipo = "1"; // 1 hourly, 2 salaried, 3 commissioned
-                empregado.salarioHora = "10"; // salário-hora
-                empregado.salarioMes = "0" ; // salário-mês
-                empregado.comissao = "0" ; //comissão %
-                empregado.tipoDeAgenda = "4" ; // 1 1x/mes, 2 2x/mes, 4 4x/mes...
-                empregado.metodoPagamento = "1" ; // 1 cheque correio, 2 cheque maos, 3 conta bancaria
-                empregado.pertenceSindicato = "0" ; // 0 percence sindicato, 1 não pertence
-                empregado.taxaSindicato = "0" ; // taxa sindicato
-                empregado.salarioHoraAcumulado = "0" ; // salário-hora acumulado
-                empregado.comissoesAcumuladas = "0" ; // comissões acumuladas
-                empregado.taxaSindAcumulado = "0" ; // taxas acumuladas
-
+                empregado = new Empregado("Jose da Silva", "Rua da Silva 123", "1", "10", "0", "0", "4", "1", "0", "0", "0", "0", "0");
                 empregado.salarioHoraAcumulado = "60" ;
                 System.out.print("Empregado José, horista, R$10/h, recebe toda sexta-feira, cheque por correios, sindicato (n) \n");
                 System.out.print("Vamos acumular 6h de trabalho, [6 * 10]. \n");
                 Main.empregadosArrayList.add(empregado);
 
 
-                empregado = new Empregado();
-                empregado.nome = "Tomás Turbando"; // nome
-                empregado.endereco = "Rua da Folia 3"; // endereço
-                empregado.tipo = "1"; // 1 hourly, 2 salaried, 3 commissioned
-                empregado.salarioHora = "15"; // salário-hora
-                empregado.salarioMes = "0" ; // salário-mês
-                empregado.comissao = "0" ; //comissão %
-                empregado.tipoDeAgenda = "4" ; // 1 1x/mes, 2 2x/mes, 4 4x/mes...
-                empregado.metodoPagamento = "2" ; // 1 cheque correio, 2 cheque maos, 3 conta bancaria
-                empregado.pertenceSindicato = "0" ; // 0 percence sindicato, 1 não pertence
-                empregado.taxaSindicato = "0" ; // taxa sindicato
-                empregado.salarioHoraAcumulado = "0" ; // salário-hora acumulado
-                empregado.comissoesAcumuladas = "0" ; // comissões acumuladas
-                empregado.taxaSindAcumulado = "0" ; // taxas acumuladas
-
+                empregado = new Empregado("Tomás Turbando", "Rua da Folia 3","1", "15", "0", "0", "4","2", "0", "0", "0", "0", "0");
                 empregado.salarioHoraAcumulado = "120" ;
                 empregado.taxaSindAcumulado = "30" ;
                 System.out.print("Empregado Tomás, horista, R$15/h, recebe toda sexta-feira, cheque em mãos, sindicato (n) \n");
@@ -164,39 +136,12 @@ public class Menu {
                 Main.empregadosArrayList.add(empregado);
 
 
-                empregado = new Empregado();
-                empregado.nome = "Jacinto Pinto Aquino Rêgo"; // nome
-                empregado.endereco = "Rua da Ortega 299"; // endereço
-                empregado.tipo = "2"; // 1 hourly, 2 salaried, 3 commissioned
-                empregado.salarioHora = ""; // salário-hora
-                empregado.salarioMes = "1600" ; // salário-mês
-                empregado.comissao = "0" ; //comissão %
-                empregado.tipoDeAgenda = "1" ; // 1 1x/mes, 2 2x/mes, 4 4x/mes..
-                empregado.metodoPagamento = "3" ; // 1 cheque correio, 2 cheque maos, 3 conta bancaria
-                empregado.pertenceSindicato = "1" ; // 0 percence sindicato, 1 não pertence
-                empregado.taxaSindicato = "37" ; // taxa sindicato
-                empregado.salarioHoraAcumulado = "0" ; // salário-hora acumulado
-                empregado.comissoesAcumuladas = "0" ; // comissões acumuladas
-                empregado.taxaSindAcumulado = "0" ; // taxas acumuladas
+                empregado = new Empregado("Jacinto Pinto Aquino Rêgo", "Rua da Ortega 299", "2", "", "1600", "0", "1", "3", "1", "37", "0", "0", "0");
                 System.out.print("Empregado Jacinto, assalariado, R$1600/m, recebe no fim do mes, na conta bancaria, sindicato (s, R$37/m) \n");
                 Main.empregadosArrayList.add(empregado);
 
 
-                empregado = new Empregado();
-                empregado.nome = "Oscar Alho"; // nome
-                empregado.endereco = "Rua da Cibôla S/N"; // endereço
-                empregado.tipo = "3"; // 1 hourly, 2 salaried, 3 commissioned
-                empregado.salarioHora = "0"; // salário-hora
-                empregado.salarioMes = "800" ; // salário-mês
-                empregado.comissao = "10" ; //comissão %
-                empregado.tipoDeAgenda = "2" ; // 1 1x/mes, 2 2x/mes, 4 4x/mes..
-                empregado.metodoPagamento = "1" ; // 1 cheque correio, 2 cheque maos, 3 conta bancaria
-                empregado.pertenceSindicato = "0" ; // 0 percence sindicato, 1 não pertence
-                empregado.taxaSindicato = "0" ; // taxa sindicato
-                empregado.salarioHoraAcumulado = "0" ; // salário-hora acumulado
-                empregado.comissoesAcumuladas = "0" ; // comissões acumuladas
-                empregado.taxaSindAcumulado = "0" ; // taxas acumuladas
-
+                empregado = new Empregado("Oscar Alho", "Rua da Cibôla S/N", "3", "0", "800", "10", "2", "1", "0", "0", "0", "0", "0");
                 empregado.comissoesAcumuladas = "30";
                 System.out.print("Empregado Oscar, comissionado, R$800/m, 10% comissao, recebe 2x/mes, cheque correio, sindicato (n) \n");
                 System.out.print("Vamos lançar uma venda de R$300, [300 * 0,10].\n");
