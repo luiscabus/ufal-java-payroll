@@ -4,7 +4,7 @@ public class Payroll {
     public void rodarFolhaHoje() {
         System.out.println();System.out.printf("# Folha de Pagamentos\n\n");
 
-7        for (int i = 0; i < Main.empregadosArrayList.size(); i++) {
+        for (int i = 0; i < Main.empregadosArrayList.size(); i++) {
 
             Empregado empregado = Main.empregadosArrayList.get(i);
 
