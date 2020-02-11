@@ -1,14 +1,13 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Menu {
 
-    int dia_de_hoje = 1;
-    int mes_de_hoje = 1;
-    int ano_de_hoje = 2018;
-    int diasCorridos = 2;
+    static int dia_de_hoje = 1;
+    static int mes_de_hoje = 1;
+    static int ano_de_hoje = 2018;
+    static int diasCorridos = 2;
 
-    String diaDaSemana = "";
+    static String diaDaSemana = "";
 
 
     public void Menu() {
@@ -57,10 +56,24 @@ public class Menu {
                 editar.editEmployee();
             }
 
-//            if (menu == 7) {
-//                rodarFolhaHoje(empregados);
-//            }
-//
+            if (menu == 7) {
+                Payroll folha = new Payroll();
+                folha.rodarFolhaHoje();
+
+                if (dia_de_hoje < 30) {
+                    dia_de_hoje++;
+                } else if (dia_de_hoje == 30) {
+                    dia_de_hoje = 1;
+                    if (mes_de_hoje == 12) {
+                        mes_de_hoje = 1;
+                        ano_de_hoje++;
+                    } else {
+                        mes_de_hoje++;
+                    }
+                }
+                diasCorridos++;
+            }
+
 //            if (menu == 10) {
 //                agendasDePagamento(empregados);
 //            }
