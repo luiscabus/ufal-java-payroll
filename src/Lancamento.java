@@ -4,17 +4,8 @@ public class Lancamento {
 
     public void baterPonto() {
         Scanner scanner = new Scanner(System.in);
-        
-        System.out.print("-- Lista de empregados horistas:\n");
-        for (int i = 0; i < Main.empregadosArrayList.size(); i++) {
-            Empregado empregado = Main.empregadosArrayList.get(i);
 
-            if (empregado.tipo.equals("1")) {
-                System.out.print("--- [ID:"+i+"] --- --- --- --- --- ---\n");
-                System.out.print("Nome do empregado: " + empregado.nome + "\n");
-                System.out.print("--- --- --- --- --- --- --- --- ---\n");
-            }
-        }
+        new Empregado().showAllEmployees();
 
         System.out.print("Entre com o id do empregado para inserir o cartão de ponto:\n");
         int id = scanner.nextInt();
